@@ -1,0 +1,74 @@
+<div class="page">
+  <div class="nav b-b">
+    <div class="title">
+     NGX Dynamic Forms
+    </div>
+  </div>
+  <div class="content b-b">
+    <div class="slider b-r">
+
+    </div>
+    <div class="comps  b-r">
+      <div class="types" *ngFor="let typeData of compsData;">
+        <div class="tab">
+          <div class="title"> {{typeData.name}}</div>
+          <div class="comps">
+            <div class="comp container" dragula="CompItem"  draggable="false" id="left" [(dragulaModel)]="typeData.data" >
+              <div class="comp-lib-item" *ngFor="let comp of typeData.children" (click)="addComp(comp)">
+                <img class="icon no-drag"  draggable="false" [src]="comp.icon" alt="">
+                <div class="name no-drag"  draggable="false">{{comp.name}}</div>     
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="editor b-r">
+      <div class='container' dragula="CompItem" id="right" [(dragulaModel)]="pageComps">
+        <ng-container *ngIf="pageComps?.length">
+          <div *ngFor="let compItem of pageComps;let index = index;">
+            <div class="comp-item" (click)="selectComp(compItem)" [ngClass]="{
+              selectComp: compSelectComp?.id === compItem.id
+            }">
+              <ng-container *ngIf="compSelectComp?.id === compItem.id">
+                <span class="drag-icon handle" >
+                  <img class="icon move-icon" src="assets/form-editor-designer/drag.svg" alt="">
+                </span>
+                <span class="control-icon" (click)="controlEvent('delete',index)">
+                  <img class="icon" src="assets/form-editor-designer/delete.svg" alt="">
+                </span>
+                <span class="copy-icon" (click)="controlEvent('copy',index)">
+                  <img class="icon" src="assets/form-editor-designer/copy.svg" alt="">
+                </span>
+              </ng-container>
+              <div class="item" *ngIf="compItem && compItem.type === 'input'">
+                <label [for]="compItem.id">{{compItem.name}}</label>
+                <input [id]="compItem.id" type="text" placeholder="请输入">
+              </div>
+              <div class="item" *ngIf="compItem && compItem.type === 'textarea'">
+                <label [for]="compItem.id">{{compItem.name}}</label>
+                <textarea type="text" [id]="compItem.id" placeholder="请输入文本"></textarea>
+              </div>
+              <div class="item item-comp-btn" *ngIf="compItem && compItem.type === 'button'">
+                <label for="text">{{compItem.name}}</label>
+                <button class="item-btn">{{'确定'}}</button>
+              </div>
+              <div class="item item-comp-text" *ngIf="compItem && compItem.type === 'text'">
+                <label for="text">{{compItem.name}}</label>
+                <div class="text-val">{{compItem.data_value}}</div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="form-empty" *ngIf="!pageComps?.length">
+          从左侧拖拽或点击来添加字段
+        </div>
+      </div>
+    </div>
+    <div class="setting">
+
+    </div>
+  </div>
+  <div class="floor"></div>
+</div>

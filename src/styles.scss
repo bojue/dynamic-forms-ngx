@@ -1,0 +1,57 @@
+/* in-flight clone */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  pointer-events: none;
+  border:1px dashed green;
+  background: rgba(64, 158, 255, 0.2);
+  .icon{
+    padding: 5px;
+    font-size: 12px;
+    width: 18px;
+  }
+  .name {
+    color: #303133;
+    font-size: 12px;
+    position: absolute;
+    left: 40px;
+    top: 10px;
+  }
+}
+/* high-performance display:none; helper */
+.gu-hide {
+  left: -9999px !important;
+}
+/* added to mirrorContainer (default = body) while dragging */
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* added to the source element while its mirror is dragged */
+.gu-transit {
+  position: relative;
+  // opacity: 0.2;
+  // -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  // filter: alpha(opacity=20);
+  background: rgba(0, 255, 0, 0.2);
+  border:1px dashed green;
+
+  .icon{
+    padding: 5px;
+    font-size: 12px;
+    width: 18px;
+  }
+  .name {
+    color: #303133;
+    font-size: 12px;
+    position: absolute;
+    left: 30px;
+    top: 5px;
+  }
+}
