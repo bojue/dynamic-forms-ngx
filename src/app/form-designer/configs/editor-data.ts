@@ -33,8 +33,8 @@ const CompData_SHOW = [
 
 const CompData_FORM = [
   new CompItem('input'),
-  new CompItem('textarea'),
-  new CompItem('button')
+  new CompItem('button'),
+  new CompItem('content')
 ];
 
 export function getId() {
@@ -42,16 +42,6 @@ export function getId() {
 }
 
 export const compsData = [{
-  name: '显示组件',
-  showState: true,
-  data: CompData_SHOW,
-  children: [{
-    name: '文字',
-    text: 'text',
-    icon: 'assets/form-editor-designer/text.svg'
-  }]
-
-},{
   name: '表单组件',
   showState: true,
   data: CompData_FORM,
@@ -61,12 +51,13 @@ export const compsData = [{
     icon: 'assets/form-editor-designer/input.svg'
   },
   {
-    name: '多行输入',
-    text: 'textarea',
-    icon: 'assets/form-editor-designer/textarea.svg'
-  },{
     name: '按钮',
     text: 'button',
+    icon: 'assets/form-editor-designer/button.svg'
+  },  
+  {
+    name: '容器',
+    text: 'content',
     icon: 'assets/form-editor-designer/button.svg'
   }]
 }]

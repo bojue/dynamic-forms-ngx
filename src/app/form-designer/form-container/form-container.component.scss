@@ -1,0 +1,36 @@
+.container {
+  display: block;
+  position: relative;
+
+}
+
+.container-item {
+  border: 1px dashed #ebeef5;
+  min-height: 58px;
+  margin: 10px;
+  padding: 10px;
+}
+
+
+
+.group-handle {
+  background: greenyellow;
+  color: blue;
+}
+
+.hasChildren {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.comp-item {
+  border: 1px dashed #ebeef5;
+  min-height: 58px;
+
+ &:last-child {
+    grid-column: span 1; /*占据两列 */
+    background-color: #f0f0f0; /* 设置占位符样式 */
+  }
+}
+

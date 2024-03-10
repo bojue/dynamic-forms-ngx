@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormDesignerModule } from './form-designer/form-designer.module';
 import { DragulaModule } from 'ng2-dragula'
+import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonComponent } from './form-designer/form-editor-plugin-lib/button/button.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { DragulaModule } from 'ng2-dragula'
     BrowserModule,
     AppRoutingModule,
     DragulaModule.forRoot(),
-    FormDesignerModule
+    FormDesignerModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

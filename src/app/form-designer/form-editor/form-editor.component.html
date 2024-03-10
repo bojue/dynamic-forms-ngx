@@ -41,22 +41,11 @@
                   <img class="icon" src="assets/form-editor-designer/copy.svg" alt="">
                 </span>
               </ng-container>
-              <div class="item" *ngIf="compItem && compItem.type === 'input'">
-                <label [for]="compItem.id">{{compItem.name}}</label>
-                <input [id]="compItem.id" type="text" placeholder="请输入">
-              </div>
-              <div class="item" *ngIf="compItem && compItem.type === 'textarea'">
-                <label [for]="compItem.id">{{compItem.name}}</label>
-                <textarea type="text" [id]="compItem.id" placeholder="请输入文本"></textarea>
-              </div>
-              <div class="item item-comp-btn" *ngIf="compItem && compItem.type === 'button'">
-                <label for="text">{{compItem.name}}</label>
-                <button class="item-btn">{{'确定'}}</button>
-              </div>
-              <div class="item item-comp-text" *ngIf="compItem && compItem.type === 'text'">
-                <label for="text">{{compItem.name}}</label>
-                <div class="text-val">{{compItem.data_value}}</div>
-              </div>
+         
+
+              <app-input *ngIf="compItem && compItem.type === 'input'"></app-input>
+              <app-button *ngIf="compItem && compItem.type === 'button'"> </app-button>
+              <app-content *ngIf="compItem && compItem.type === 'content'"></app-content>
             </div>
           </div>
         </ng-container>
@@ -67,7 +56,13 @@
       </div>
     </div>
     <div class="setting">
-
+      <div>
+        <button (click)="addDyComp()">addDyComp</button>
+      </div>
+      <div class='container' dragula="CompItem" id="right" [(dragulaModel)]="pageComps">
+        <section class="dyRoom" #dyRoom></section>
+      </div>
+   
     </div>
   </div>
   <div class="floor"></div>

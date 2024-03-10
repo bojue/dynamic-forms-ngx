@@ -99,6 +99,12 @@ $bg2: #fafcff;
   border: none !important;
 }
 
+.gu-transit {
+  .comp-item {
+    background: rgba(0, 255, 0, 0.2);
+  }
+}
+
 .comp-item {
   width: calc(100% - 27px);
   padding: 10px 10px;

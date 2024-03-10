@@ -9,12 +9,13 @@ import { ButtonComponent } from '../form-editor-plugin-lib/button/button.compone
 import { ContentComponent } from '../form-editor-plugin-lib/content/content.component';
 
 
+
 @Component({
-  selector: 'app-form-editor',
-  templateUrl: './form-editor.component.html',
-  styleUrls: ['./form-editor.component.scss']
+  selector: 'app-ng-content',
+  templateUrl: './ng-content.component.html',
+  styleUrls: ['./ng-content.component.scss']
 })
-export class FormEditorComponent {
+export class NgContentComponent {
   @ViewChild('dyRoom', { read: ViewContainerRef })
   dyRoom!: ViewContainerRef;
   compsData: any = compsData
@@ -47,7 +48,6 @@ export class FormEditorComponent {
         return target.id !== 'left';
       },
       moves: (el, container:any, handle:any) => {
-        console.log('move')
         return  container.id === 'left' ||  handle?.classList?.contains('move-icon')
       }
     });
@@ -87,24 +87,8 @@ export class FormEditorComponent {
   addDyComp() {
     let compFactory = this.cfr.resolveComponentFactory(ContentComponent)
     let compRef = this.dyRoom.createComponent(compFactory)
-
-    // 当前组件实例
-    const compInstance = compRef.instance;
-    const nextSettingObject =  {
-      id: this.pageComps.length
-    }
     this.dragulaService.createGroup('GROUP_NAME', compRef.location.nativeElement);
-    compInstance.dyCompSettingObject = nextSettingObject
 
-
-    const index = 0
-
-    const currComp = {
-      ...this.pageComps[index],
-      id: getId()
-    }
-    this.selectComp(currComp)
-    this.pageComps.splice(index, 0,currComp)
   }
 
 

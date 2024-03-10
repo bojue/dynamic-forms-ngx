@@ -1,0 +1,23 @@
+img {
+  width: 20px;
+  background: aliceblue;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 40px;
+  grid-gap: 10px;
+  .child-item {
+    background: darkseagreen;
+  }
+}
+
+.item {
+  height: 100px;
+  border: 1px solid red;
+}
+
+#GROUP_NAME {
+  background: red;
+}
